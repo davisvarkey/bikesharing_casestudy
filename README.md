@@ -49,6 +49,7 @@ year, holiday, temp, windspeed, sep, sun, Light_snowrain, Misty, spring, summer 
 
  count = 0.1981 + 0.2340 * year + 0.4782 * temp - 0.1043 * holiday - 0.1480 * windspeed + 0.0894 * sep - 0.0495 * sun - 0.2904 * Light_snowrain - 0.0809 * Misty - 0.0544 * spring + 0.0623 * summer + 0.0969 * winter
 
+
 #### -  Comparision between Training and Testing dataset:
 
 Train dataset R^2 : 0.839
@@ -69,8 +70,25 @@ started decreasing as we approached the end of year.
 * When it’s not holiday, booking seems to be less in number which seems reasonable as on holidays, people may want to spend time at home and enjoy with family.
 * 2019 attracted more number of booking compared to the previous year, which shows good progress in terms of business.
 
-## Acknowledgements
-
+#### 
+Positive Indicators:
+ * High R-squared value (0.839): This suggests that the model explains a significant portion of the variance in the dependent variable (count).
+ * Means Square Error (MSE) values (0.00924) indicate model having good performance as it gives relatively low error.
+ * Low p-values for most coefficients: These indicate that the corresponding features are statistically significant predictors of the target variable.
+ * F-statistic with a low p-value (1.176e-185): This suggests that the overall model is statistically significant.
+Areas for Further Investigation:
+ * Durbin-Watson statistic (2.102): While this value is close to 2, indicating no significant autocorrelation, it might be worth investigating further to ensure the residuals are uncorrelated.
+ * Jarque-Bera test: The p-value (163.903) suggests that the residuals are not normally distributed. This could affect the validity of the model's statistical inferences.
+ * Condition number (17.3): This is relatively low, indicating that the features are not highly correlated, which is generally good. However, a very high condition number could signal multicollinearity.
+Additional Considerations:
+ * Model validation: The model's performance should be evaluated on a separate holdout dataset to assess its generalization ability.
+ * Feature importance: Analyzing the absolute values of the standardized coefficients can provide insights into the relative importance of each feature in predicting the target variable.
+ * Residual analysis: Plotting residuals against predicted values can help identify patterns or outliers that might indicate model misspecification.
+To make a definitive judgment about the model's accuracy, it's recommended to:
+ * Conduct a more comprehensive residual analysis.
+ * Evaluate the model's performance on a holdout dataset.
+ * Consider using other evaluation metrics, such as mean squared error (MSE) or root mean squared error (RMSE), in addition to R-squared.
+By addressing these points, you can gain a more complete understanding of the model's accuracy and its suitability for the intended application.
 
 ## Contact
 Created by @davisvarkey - feel free to contact me!
